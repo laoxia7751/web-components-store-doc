@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,O as l}from"./chunks/framework.dc586db8.js";const _=JSON.parse('{"title":"Button 按钮","description":"","frontmatter":{},"headers":[],"relativePath":"example/biz/button.md"}'),p={name:"example/biz/button.md"},o=l("",4),t=[o];function e(c,r,F,D,y,i){return n(),a("div",null,t)}const d=s(p,[["render",e]]);export{_ as __pageData,d as default};
