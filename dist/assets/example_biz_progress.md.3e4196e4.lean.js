@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,O as l}from"./chunks/framework.fe6f7e1d.js";const d=JSON.parse('{"title":"Progress 进度条","description":"","frontmatter":{},"headers":[],"relativePath":"example/biz/progress.md"}'),p={name:"example/biz/progress.md"},o=l("",4),t=[o];function e(c,r,D,F,y,i){return n(),a("div",null,t)}const A=s(p,[["render",e]]);export{d as __pageData,A as default};
