@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,O as l}from"./chunks/framework.aae1d792.js";const A=JSON.parse('{"title":"Rank 排名标签","description":"","frontmatter":{},"headers":[],"relativePath":"example/biz/rank.md"}'),o={name:"example/biz/rank.md"},p=l("",7),t=[p];function c(e,F,D,r,y,i){return a(),n("div",null,t)}const u=s(o,[["render",c]]);export{A as __pageData,u as default};
