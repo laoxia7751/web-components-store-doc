@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,O as l}from"./chunks/framework.aae1d792.js";const i=JSON.parse('{"title":"政务蓝风格css配置","description":"","frontmatter":{},"headers":[],"relativePath":"xiaoshan/base/variable.md"}'),p={name:"xiaoshan/base/variable.md"},o=l("",2),e=[o];function c(t,r,C,y,D,A){return a(),n("div",null,e)}const m=s(p,[["render",c]]);export{i as __pageData,m as default};
