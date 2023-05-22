@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,O as l}from"./chunks/framework.aae1d792.js";const d=JSON.parse('{"title":"Progress 进度条","description":"","frontmatter":{},"headers":[],"relativePath":"tebian/biz/progress.md"}'),p={name:"tebian/biz/progress.md"},o=l("",4),t=[o];function e(c,r,D,F,y,i){return n(),a("div",null,t)}const A=s(p,[["render",e]]);export{d as __pageData,A as default};

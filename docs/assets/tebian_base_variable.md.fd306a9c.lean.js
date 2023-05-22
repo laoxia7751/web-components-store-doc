@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,O as l}from"./chunks/framework.aae1d792.js";const i=JSON.parse('{"title":"企业蓝风格css配置","description":"","frontmatter":{},"headers":[],"relativePath":"tebian/base/variable.md"}'),p={name:"tebian/base/variable.md"},o=l("",2),e=[o];function c(t,r,C,y,D,A){return a(),n("div",null,e)}const f=s(p,[["render",c]]);export{i as __pageData,f as default};
