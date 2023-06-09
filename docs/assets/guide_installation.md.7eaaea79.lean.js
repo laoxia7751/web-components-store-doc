@@ -1,0 +1,1 @@
+import{_ as a,o as e,c as s,O as n}from"./chunks/framework.185df40d.js";const m=JSON.parse('{"title":"安装","description":"","frontmatter":{},"headers":[],"relativePath":"guide/installation.md"}'),t={name:"guide/installation.md"},o=n("",11),l=[o];function r(p,c,i,d,h,_){return e(),s("div",null,l)}const b=a(t,[["render",r]]);export{m as __pageData,b as default};
