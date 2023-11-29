@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as n,O as l}from"./chunks/framework.185df40d.js";const _=JSON.parse('{"title":"Table 表格","description":"","frontmatter":{},"headers":[],"relativePath":"xiaoshan/biz/table.md"}'),p={name:"xiaoshan/biz/table.md"},o=l("",4),e=[o];function t(c,r,D,F,y,i){return a(),n("div",null,e)}const A=s(p,[["render",t]]);export{_ as __pageData,A as default};
