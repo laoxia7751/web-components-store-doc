@@ -1,0 +1,1 @@
+import{_ as s,o as l,c as a,Q as n}from"./chunks/framework.54685c66.js";const b=JSON.parse('{"title":"说明","description":"","frontmatter":{},"headers":[],"relativePath":"xiaoshan/base/index.md"}'),p={name:"xiaoshan/base/index.md"},o=n("",5),e=[o];function t(D,c,F,r,y,i){return l(),a("div",null,e)}const E=s(p,[["render",t]]);export{b as __pageData,E as default};
