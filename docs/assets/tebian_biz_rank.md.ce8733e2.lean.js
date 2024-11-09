@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,O as l}from"./chunks/framework.185df40d.js";const A=JSON.parse('{"title":"Rank 排名标签","description":"","frontmatter":{},"headers":[],"relativePath":"tebian/biz/rank.md"}'),o={name:"tebian/biz/rank.md"},p=l("",7),t=[p];function c(e,F,D,r,y,i){return n(),a("div",null,t)}const u=s(o,[["render",c]]);export{A as __pageData,u as default};

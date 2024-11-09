@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as n,O as l}from"./chunks/framework.185df40d.js";const d=JSON.parse('{"title":"Panel 内容面板","description":"","frontmatter":{},"headers":[],"relativePath":"xiaoshan/biz/panel.md"}'),p={name:"xiaoshan/biz/panel.md"},o=l("",4),e=[o];function t(c,r,D,F,y,i){return a(),n("div",null,e)}const A=s(p,[["render",t]]);export{d as __pageData,A as default};

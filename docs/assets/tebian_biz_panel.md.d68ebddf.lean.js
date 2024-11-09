@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as n,O as l}from"./chunks/framework.80b66818.js";const B=JSON.parse('{"title":"Panel 内容面板","description":"","frontmatter":{},"headers":[],"relativePath":"tebian/biz/panel.md"}'),p={name:"tebian/biz/panel.md"},o=l("",4),e=[o];function t(c,r,D,F,y,i){return a(),n("div",null,e)}const _=s(p,[["render",t]]);export{B as __pageData,_ as default};
