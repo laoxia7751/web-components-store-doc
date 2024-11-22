@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>demo</title>
+    </head>
+    <body>
+        <div id="box">
+            <!-- <img src="file:///C:/Users/123/Desktop/animated.png" alt="" /> -->
+        </div>
+    </body>
+    <script type="text/javascript">
+        const list = [
+            { price: 632.17, paw: 1.0282 },
+            { price: 632.37, paw: 1.0279 },
+            { price: 630.23, paw: 1.0314 },
+            { price: 627.71, paw: 1.0355 },
+            { price: 624.77, paw: 1.0404 },
+            { price: 620.75, paw: 1.0471 },
+        ];
+
+        // 计算总价和总克重
+        const total = list.reduce(
+            (acc, item) => {
+                acc.priceSum += item.price;
+                acc.pawSum += item.paw;
+                return acc;
+            },
+            { priceSum: 0, pawSum: 0 },
+        );
+
+        // 计算均价和均克重
+        const averagePrice = (total.priceSum / list.length).toFixed(2);
+        const averagePaw = (total.pawSum / list.length).toFixed(4);
+
+        console.log('均价:', averagePrice); // 输出均价
+        console.log('均克重:', averagePaw); // 输出均克重
+    </script>
+</html>
