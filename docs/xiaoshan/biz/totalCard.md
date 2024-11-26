@@ -26,7 +26,7 @@
 
             &[type='extensions-1']{
                 width: 309px;
-                height: 82px;
+                height: 100px;
             }
         }
 
@@ -865,7 +865,7 @@
 <div class="example">
     <label>统计卡片扩展样式 - 1</label>
     <div class="biz-total-card" type="extensions-1">
-        <!-- --icon-url: url(icon地址); -->
+        <!-- --icon-url: url(icon地址); --icon-url-base:url(icon底座地址)-->
         <div class="icon"></div>
         <div class="wrapper">
             <div class="label">
