@@ -928,7 +928,8 @@
 <template>
     <label>统计卡片扩展样式 - 1</label>
     <div class="biz-total-card" type="extensions-1">
-        <!-- --icon-url: url(icon地址); -->
+        <!-- --icon-url: url(icon地址); --icon-url-base:url(icon底座地址)-->
+        <!-- --icon-size icon大小;  --icon-base-size icon底座大小-->
         <div class="icon"></div>
         <div class="wrapper">
             <div class="label">
