@@ -3,25 +3,34 @@
         display: block;
         margin-bottom: 6px;
     }
+
     .biz-stripe-card {
         width: 400px;
         height: 300px;
+
         &:not(.square){
             margin-bottom: 10px;
             width: 548px;
             height: 108px;
         }
+
         &.weather{
-            width:100px;
-            height:150px;
+            width: 100px;
+            height: 150px;
             margin: 10px;
             display: inline-block;
         }
+
         &.custom{
             // 主题色rgb
             --color: 32, 237, 89;
             // 对应背景条纹图片
             --stripeImg: url(../images/tb-stripe-card-bg-green.png);
+        }
+        
+        &.thindog{
+            width: 416px;
+            height: 72px;
         }
     }
 
@@ -224,7 +233,6 @@
 
 </details>
 
-
 ## 天气卡片
 
 <div class="example">
@@ -249,4 +257,34 @@
 }
 </style>
 ```
+
+</details>
+
+## 细条卡片
+
+<div class="example">
+    <div class="biz-stripe-card thindog"></div>
+    <div class="biz-stripe-card thindog"></div>
+</div>
+
+<details open>
+<summary>展开查看</summary>
+
+```vue
+<template>
+    <div class="example">
+        <div class="biz-stripe-card thindog"></div>
+        <div class="biz-stripe-card thindog"></div>
+    </div>
+</template>
+<script setup></script>
+
+<style>
+.biz-stripe-card {
+    width: 416px;
+    height: 72px;
+}
+</style>
+```
+
 </details>
