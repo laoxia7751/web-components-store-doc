@@ -14,6 +14,11 @@
                 height: fit-content;
             }
 
+            &[type='totalbg-icon'] {
+                width: 90px;
+                height: 116px;
+            }
+
             &[type='hasIconBg-diy']{
                 width: 164px;
                 height: 92px;
@@ -313,6 +318,8 @@
 </details>
 
 ## 统计卡片含有复杂背景
+1. 统计卡片含有复杂背景 type：totalbg/totalbg-1/totalbg-2
+2. 卡片含有底座背景+icon  type：totalbg-icon
 
 <div class="example">
     <label>统计卡片含有复杂背景</label>
@@ -389,6 +396,25 @@
             </div>
             <div class="label">
                 <span>利润等额同比</span>
+            </div>
+        </div>
+    </div>
+    <label>卡片含有复杂背景及icon</label>
+    <div class="biz-total-card" type="totalbg-icon">
+        <div class="wrapper">
+            <div class="icon-slot"></div>
+            <div class="label">
+                <span>有毒物质</span>
+            </div>
+        </div>
+    </div>
+    <div class="biz-total-card" type="totalbg-icon">
+        <div class="wrapper">
+            <div class="icon-slot">
+                 <i class="iconfont icon-home"></i>
+            </div>
+            <div class="label">
+                <span>企业</span>
             </div>
         </div>
     </div>
@@ -476,6 +502,30 @@
             </div>
         </div>
     </div>
+    <label>卡片含有复杂背景及icon</label>
+    <div class="biz-total-card" type="totalbg-icon">
+        <!-- style="--bg-url: url(底座图片地址)" -->
+        <!-- style="--icon-url: url(图片地址)" -->
+        <!-- style="--icon-bottom: 20px 图片距离底面的间距" -->
+        <div class="wrapper">
+            <div class="icon-slot"></div>
+            <div class="label">
+                <span>有毒物质</span>
+            </div>
+        </div>
+    </div>
+    <div class="biz-total-card" type="totalbg-icon">
+        <!-- style="--bg-url: url(底座图片地址)" -->
+        <!-- style="--icon-bottom: 20px 图片距离底面的间距" -->
+        <div class="wrapper">
+            <div class="icon-slot">
+                 <i class="iconfont icon-home"></i>
+            </div>
+            <div class="label">
+                <span>企业</span>
+            </div>
+        </div>
+    </div>
 </template>
 <script setup></script>
 
@@ -483,6 +533,11 @@
 .biz-total-card {
     width: 144px;
     height: 88px;
+
+    &[type='totalbg-icon'] {
+        width: 90px;
+        height: 116px;
+    }
 }
 </style>
 ```
