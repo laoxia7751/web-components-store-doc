@@ -2,6 +2,7 @@
 const themes = [
     { text: '萧山(政务蓝)风格', link: '/xiaoshan/base/' },
     { text: '特变(企业蓝)风格', link: '/tebian/base/' },
+    { text: '林芝定制主题风格', link: '/nyingchi/base/' },
 ];
 /** 根据风格生成路由 */
 const themeChildRoute = (theme) => {
@@ -144,6 +145,7 @@ export default {
             ],
             ...themeChildRoute('xiaoshan'),
             ...themeChildRoute('tebian'),
+            ...themeChildRoute('nyingchi'),
         },
     },
 };

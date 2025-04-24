@@ -913,109 +913,24 @@
 
 // 条纹背景卡片
 .biz-stripe-card {
-    background: linear-gradient(90deg, var(--primaryColor-3) 0%, var(--opacityColor) 100%);
-    box-shadow: inset pxToRem(8) pxToRem(12) pxToRem(24) var(--primaryColor-3);
+    background: linear-gradient(180deg, var(--primaryColor-1) 0%, var(--primaryColor-2) 100%);
     border-radius: var(--radius-md);
     position: relative;
-    overflow: hidden;
-
-    // 蓝(默认)rgba(var(--color), 1)
-    --stripeImg: url('../images/tb-stripe-card-bg-blue.png');
-    --alpha: 0.15;
-
-    // 红 rgba(255, 77, 77, 1);
-    &.red {
-        --color: 255, 77, 77;
-        --stripeImg: url(../images/tb-stripe-card-bg-red.png);
-    }
-
-    // 粉 rgba(255, 149, 133, 1)
-    &.pink {
-        --color: 255, 149, 133;
-        --stripeImg: url(../images/tb-stripe-card-bg-pink.png);
-    }
-
-    // 橙rgba(255, 153, 0, 1)
-    &.orange {
-        --color: 255, 153, 0;
-        --stripeImg: url(../images/tb-stripe-card-bg-orange.png);
-    }
-
-    // 浅橙rgba(255, 196, 120, 1)
-    &.light-orange {
-        --color: 255, 196, 120;
-        --stripeImg: url(../images/tb-stripe-card-bg-light-orange.png);
-    }
-
-    // 黄rgba(250, 250, 30, 1)
-    &.yellow {
-        --color: 250, 250, 30;
-        --stripeImg: url(../images/tb-stripe-card-bg-yellow.png);
-        --alpha: 0.1;
-    }
-
-    // 绿rgba(32, 237, 89, 1)
-    &.green {
-        --color: 32, 237, 89;
-        --stripeImg: url(../images/tb-stripe-card-bg-green.png);
-    }
-
-    // 青rgba(36, 252, 255, 1)
-    .cyan {
-        --color: 36, 252, 255;
-        --stripeImg: url(../images/tb-stripe-card-bg-cyan.png);
-    }
-
-    // 危险等级：1级rgba(201, 9, 9, 1)
-    .level1 {
-        --color: 201, 9, 9;
-        --stripeImg: url(../images/tb-stripe-card-bg-level1.png);
-    }
-
-    // 危险等级：2级rgba(255, 144, 1, 1)
-    .level2 {
-        --color: 255, 144, 1;
-        --stripeImg: url(../images/tb-stripe-card-bg-level2.png);
-    }
-
-    // 危险等级：3级rgba(255, 255, 0, 1)
-    .level3 {
-        --color: 255, 255, 0;
-        --stripeImg: url(../images/tb-stripe-card-bg-level3.png);
-    }
-
-    // 危险等级：4级rgba(81, 204, 255, 1)
-    .level4 {
-        --color: 81, 204, 255;
-        --stripeImg: url(../images/tb-stripe-card-bg-level4.png);
-    }
-
-    --padding: var(--gap-md) var(--gap-md) var(--gap-md) calc(var(--gap-xs) + var(--gap-xl));
-
-    &:before,
-    &:after {
-        content: '';
-        left: 0;
-        top: 50%;
-        position: absolute;
-        pointer-events: none;
-        transform: translateY(-50%);
-    }
 
     &::before {
-        width: pxToRem(6);
-        height: calc(100% - (36 * 1rem / 16));
-        border-radius: 0 var(--radius-md) var(--radius-md) 0;
-        background-color: rgb(var(--color));
+        content: '';
+        border-radius: pxToRem(6);
+        background: radial-gradient(56.92% 100% at 50% 100%, rgba(var(--color), 0.3) 0%, rgba(var(--color), 0.3) 0.01%, rgba(var(--color), 0) 100%, rgba(var(--color), 0) 100%),
+            linear-gradient(0deg, rgba(var(--color), 0.1) 0%, rgba(var(--color), 0.1) 100%), var(--bgColor);
+        position: absolute;
+        top: pxToRem(2);
+        left: pxToRem(2);
+        width: calc(100% - #{pxToRem(4)});
+        height: calc(100% - #{pxToRem(4)});
     }
 
-    &::after {
-        width: pxToRem(280);
-        height: 100%;
-        background: linear-gradient(90deg, rgba(var(--color), 0.4) 0%, rgba(var(--color), 0) 100%);
-    }
+    --padding: var(--gap-md);
 
-    // 内部div(仅用于单条纹并且左侧有颜色条的卡片)
     .content {
         width: 100%;
         height: 100%;
@@ -1023,37 +938,10 @@
         position: relative;
         z-index: 1;
 
-        @keyframes move {
-            0% {
-                background-position-x: 0;
+        .title {
+            b {
+                font-weight: 700;
             }
-            100% {
-                background-position-x: 100000px;
-            }
-        }
-        &::after {
-            content: '';
-            width: 100%;
-            height: pxToRem(70);
-            position: absolute;
-            left: pxToRem(73);
-            bottom: 0;
-            pointer-events: none;
-            border-radius: 120% 120% 0 0;
-            background: linear-gradient(
-                70deg,
-                rgba(var(--color), 0) 18%,
-                rgba(var(--color), var(--alpha)) 18%,
-                rgba(var(--color), var(--alpha)) 50%,
-                rgba(var(--color), 0) 50%,
-                rgba(var(--color), 0) 68%,
-                rgba(var(--color), var(--alpha)) 68%,
-                rgba(var(--color), var(--alpha)) 100%
-            );
-            background-size: pxToRem(34) pxToRem(92);
-            background-position-x: 0px;
-            animation: move 4000s linear infinite;
-            mask: radial-gradient(39.74% 100% at 50% 100%, #fafa1e 0%, rgba(250, 250, 30, 0) 100%);
         }
 
         .data-item {
@@ -1063,25 +951,38 @@
         }
     }
 
+    &.active {
+        background: linear-gradient(180deg, var(--primaryColor) 0%, var(--primaryColor) 100%);
+
+        &::before {
+            background: radial-gradient(56.92% 100% at 50% 100%, rgba(var(--color), 1) 0%, rgba(var(--color), 0) 100%), linear-gradient(0deg, rgba(var(--color), 0.3) 0%, rgba(var(--color), 0.3) 100%),
+                var(--bgColor);
+        }
+    }
+
     // 天气背景
     &.weather,
     &[type='weather'] {
-        background: rgb(0, 40, 80);
+        background: none;
 
-        &::before,
+        &::before {
+            opacity: 0.5;
+            background: linear-gradient(180deg, rgba(var(--color), 0.4) 0%, rgba(var(--color), 0) 100%), var(--bgColor);
+            z-index: 1;
+        }
         &::after {
             content: '';
+            border-radius: pxToRem(8);
+            background: linear-gradient(180deg, rgba(var(--color), 0.8) 0%, rgba(var(--color), 0) 100%);
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(0, 156, 255, 0.8) 0%, rgba(0, 156, 255, 0) 100%);
-            position: absolute;
             opacity: 0.5;
-        }
-
-        &::after {
-            width: 45%;
-            left: 0;
-            background: linear-gradient(90deg, rgba(var(--color), 0.4) 0%, rgba(var(--color), 0) 100%);
         }
 
         &.today {
@@ -1092,29 +993,44 @@
         }
     }
 
-    // 上下都有条纹的卡片👇
-    &[type='square'] {
-        &:before,
-        &:after {
-            left: 50%;
-            width: pxToRem(502);
-            height: pxToRem(57);
-            position: absolute;
-            pointer-events: none;
-            transform: translateX(-50%);
-            background: transparent;
-            background-color: transparent;
+    // color变量适用
+    &[type='thindog'],
+    &[type='ranking'] {
+        // 蓝(默认)rgba(var(--color), 1)
+        --alpha: 0.15;
+        // 红 rgba(255, 77, 77, 1);
+        &.red {
+            --color: 255, 77, 77;
         }
 
-        &::before {
-            content: url('../images/tb-stripe-card-bg-top.png');
-            top: 0;
+        // 粉 rgba(255, 149, 133, 1)
+        &.pink {
+            --color: 255, 149, 133;
         }
 
-        &::after {
-            content: url('../images/tb-stripe-card-bg-bottom.png');
-            top: unset;
-            bottom: 0;
+        // 橙rgba(255, 153, 0, 1)
+        &.orange {
+            --color: 255, 153, 0;
+        }
+
+        // 浅橙rgba(255, 196, 120, 1)
+        &.light-orange {
+            --color: 255, 196, 120;
+        }
+
+        // 黄rgba(250, 250, 30, 1)
+        &.yellow {
+            --color: 250, 250, 30;
+        }
+
+        // 绿rgba(32, 237, 89, 1)
+        &.green {
+            --color: 32, 237, 89;
+        }
+
+        // 青rgba(36, 252, 255, 1)
+        .cyan {
+            --color: 36, 252, 255;
         }
     }
 
@@ -1123,9 +1039,21 @@
         border-radius: var(--radius-md);
         background: linear-gradient(90deg, rgba(var(--color), 0.2) 0%, rgba(var(--color), 0.1) 100%);
 
+        &:before,
+        &:after {
+            content: '';
+            left: 0;
+            top: 50%;
+            position: absolute;
+            pointer-events: none;
+            transform: translateY(-50%);
+        }
+
         &::before {
             width: pxToRem(6);
             height: 36% !important;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            background-color: rgb(var(--color));
         }
 
         &::after {
@@ -1174,7 +1102,6 @@
     //     }
     // }
 }
-
 // 排行六边形按钮
 .biz-rank-icon {
     position: relative;
@@ -2399,11 +2326,10 @@
         height: pxToRem(48);
         line-height: pxToRem(48);
         font-size: pxToRem(36);
-        font-family: 'Microsoft YaHei UI';
-        font-weight: 700;
         text-align: center;
+        font-weight: bold;
+        box-shadow: 0 0 pxToRem(10) rgba(6, 94, 183, 0.1);
         position: relative;
-        display: inline-block;
 
         .digital {
             .before,
@@ -2412,44 +2338,31 @@
                 height: calc(50% - #{pxToRem(1)});
                 position: absolute;
                 color: var(--textColor-1);
-                border: none;
                 overflow: hidden;
+                border: pxToRem(2) solid rgb(var(--color));
                 border-radius: pxToRem(4);
+                background: linear-gradient(180deg, rgba(var(--color), 0.5) 0%, rgba(var(--color), 0.7) 100%), var(--bgColor);
                 // 景深
                 perspective: 20rem;
 
                 &::after {
                     content: attr(data-number);
-                    text-shadow: 0px pxToRem(2) pxToRem(6) #000;
-                    display: block;
-                    width: calc(100% - #{pxToRem(4)});
-                    height: calc(100% - #{pxToRem(4)});
-                    border-radius: pxToRem(4);
-                    position: absolute;
-                    top: pxToRem(2);
-                    left: pxToRem(2);
-                    background: linear-gradient(180deg, #0a2460 0%, #3867a3 100%);
                 }
             }
             .before {
                 top: 0;
-                line-height: pxToRem(48 - 2);
-                background: linear-gradient(180deg, #163274 0%, #548bd1 100%);
+                line-height: pxToRem(48 - 1);
             }
             .after {
                 bottom: 0;
                 line-height: 0;
-                background: linear-gradient(180deg, #548bd1 0%, #163274 100%);
-
-                &::after {
-                    background: linear-gradient(180deg, #3867a3 0%, #0a2460 100%);
-                }
+                background: linear-gradient(180deg, rgba(var(--color), 0.7) 0%, rgba(var(--color), 0.3) 100%), var(--bgColor);
             }
         }
 
         // 向下翻
-        .back .before,
-        .front .after {
+        .front .after,
+        .back .before {
             z-index: 1;
         }
         .back .after {

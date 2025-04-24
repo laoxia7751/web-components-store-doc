@@ -121,13 +121,13 @@ label{
     /* 主体内容区域高度 */
     --main-height: calc(100vh - var(--header-height) - var(--main-margin-top));
     /* 地图左右侧组件与两侧组件之间的间距*/
-    --map-components-padding: 0;
+    --map-components-padding: calc(20 * 1rem / 16);
 
     /* 业务组件配置 */
     /* 两侧业务组件之间的行间距 */
     --biz-component-row-gap: calc(20 * 1rem / 16);
     /* 两侧业务组件列之间的间距 */
-    --biz-component-column-gap: calc(40 * 1rem / 16);
+    --biz-component-column-gap: calc(20 * 1rem / 16);
     /* 两侧业务组件列的内部边距 */
     --biz-component-padding: calc(20 * 1rem / 16);
     /* 两侧业务组件标题高度 */

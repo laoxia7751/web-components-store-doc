@@ -11,6 +11,7 @@ const OPEN_DEBUG = false;
 let themeAssets = {
     xiaoshan: ['https://newdev.rdapp.com:10066/store/api/style/css/theme.css'],
     tebian: ['https://newdev.rdapp.com:10066/store/api/style/css/theme-tb.css'],
+    nyingchi: ['https://newdev.rdapp.com:10066/store/api/style/css/theme-nc.css'],
 };
 
 // 部署到github与gitee上会跨域，改走jsdelivr代理
@@ -18,6 +19,7 @@ if (!import.meta.env.DEV) {
     themeAssets = {
         xiaoshan: ['../../css/theme.css'],
         tebian: ['../../css/theme-tb.css'],
+        nyingchi: ['../../css/theme-nc.css'],
     };
 } else {
     // 调试环境
@@ -27,6 +29,9 @@ if (!import.meta.env.DEV) {
     } else if (window.location.pathname.split('/').at(2) === 'xiaoshan') {
         import('./css/theme.css');
         import('./scss/bizExtend.scss');
+    } else if (window.location.pathname.split('/').at(2) === 'nyingchi') {
+        import('./css/theme-nc.css');
+        import('./scss/bizExtend-nc.scss');
     }
 }
 

@@ -525,6 +525,66 @@
         @include card-style-1;
     }
 
+    // 统计卡片含有复杂背景及icon
+    &[type='totalbg-icon'] {
+        --bg-url: url(../images/total-card-icon-extend-base.png);
+        --wrapper-spacing: #{pxToRem(20)};
+        --icon-bottom: #{pxToRem(20)};
+        --icon-url: url(../images/biz-total-card-hasIcon-lineicon.png);
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .icon-slot {
+                flex: 1;
+                width: 100%;
+                background-image: var(--bg-url);
+                background-repeat: no-repeat;
+                background-position: bottom;
+                background-size: contain;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &::after {
+                    content: '';
+                    width: 60%;
+                    height: 50%;
+                    background-image: var(--icon-url);
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    margin-bottom: var(--icon-bottom);
+                }
+
+                &:has(.iconfont) {
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                & > .iconfont {
+                    font-size: pxToRem(48);
+                    color: rgb(var(--color));
+                    margin-bottom: var(--icon-bottom);
+                }
+            }
+
+            .label {
+                height: pxToRem(24);
+                line-height: pxToRem(24);
+                font-size: var(--h5);
+                color: var(--textColor-3);
+                margin-top: var(--gap-xs);
+            }
+        }
+    }
+
     // 统计数字卡片含有 icon
     &[type='hasIcon'] {
         --label-color: 196, 217, 245;
@@ -555,8 +615,22 @@
         border-radius: var(--radius-md);
         padding: var(--gap-sm);
         background: linear-gradient(180deg, rgba(var(--color), 0.01) 0%, rgba(var(--color), 0.2) 100%);
-        border: pxToRem(1) solid transparent;
         transition: 0.5s border, 0.5s box-shadow;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: flex;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-md);
+            border: pxToRem(1) solid transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
 
         .wrapper {
             -webkit-box-direction: reverse;
@@ -570,18 +644,16 @@
         &[hover='true'],
         &[hover=''] {
             &:hover {
-                border: pxToRem(1) solid rgba(var(--lightColor), 1);
+                &::after {
+                    border: pxToRem(1) solid rgba(var(--lightColor), 1);
+                }
             }
         }
 
         &.active {
-            border: pxToRem(1) solid rgba(var(--lightColor), 1);
-            box-shadow: 0 0 pxToRem(16) 0 rgba(var(--lightColor), 1) inset;
-
-            .wrapper {
-                .value {
-                    color: rgba(var(--lightColor), 1);
-                }
+            &::after {
+                box-shadow: 0 0 pxToRem(16) 0 rgba(var(--lightColor), 1) inset;
+                border: pxToRem(1) solid rgba(var(--lightColor), 1);
             }
         }
     }
@@ -606,9 +678,10 @@
             -webkit-box-direction: reverse;
             flex-direction: column-reverse !important;
 
-            .value .percentage {
-                font-size: var(--n3);
-                white-space: nowrap;
+            .value {
+                span {
+                    white-space: nowrap;
+                }
             }
         }
 
@@ -708,15 +781,17 @@
         align-items: center;
 
         .icon {
-            width: pxToRem(54);
+            width: pxToRem(64);
             height: pxToRem(64);
             flex-shrink: 0;
             background-image: var(--icon-url);
             background-repeat: no-repeat;
             background-position: center;
+            background-size: contain;
             display: flex;
-            justify-content: cente r;
+            justify-content: center;
             align-items: center;
+            background-size: contain;
 
             &:has(.iconfont) {
                 background-image: none;
@@ -771,7 +846,7 @@
         }
 
         .icon + .wrapper {
-            margin-left: var(--gap-lg);
+            margin-left: var(--gap-sm);
         }
 
         &[hover] {
@@ -856,39 +931,8 @@
         height: calc(100% - #{pxToRem(4)});
     }
 
-    &.weather {
-        background: none;
-
-        &::before {
-            opacity: 0.5;
-            background: linear-gradient(180deg, rgba(0, 156, 255, 0.4) 0%, rgba(0, 156, 255, 0) 100%), #002850;
-            z-index: 1;
-        }
-        &::after {
-            content: '';
-            border-radius: pxToRem(8);
-            background: linear-gradient(180deg, rgba(var(--color), 0.8) 0%, rgba(var(--color), 0) 100%);
-            position: absolute;
-            z-index: 0;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.5;
-        }
-
-        &.today {
-            &::before,
-            &::after {
-                opacity: 1;
-            }
-        }
-    }
-
     --padding: var(--gap-md);
-    // 内部div(仅用于单条纹并且左侧有颜色条的卡片)
+
     .content {
         width: 100%;
         height: 100%;
@@ -917,6 +961,148 @@
                 var(--bgColor);
         }
     }
+
+    // 天气背景
+    &.weather,
+    &[type='weather'] {
+        background: none;
+
+        &::before {
+            opacity: 0.5;
+            background: linear-gradient(180deg, rgba(var(--color), 0.4) 0%, rgba(var(--color), 0) 100%), var(--bgColor);
+            z-index: 1;
+        }
+        &::after {
+            content: '';
+            border-radius: pxToRem(8);
+            background: linear-gradient(180deg, rgba(var(--color), 0.8) 0%, rgba(var(--color), 0) 100%);
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+        }
+
+        &.today {
+            &::before,
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    // color变量适用
+    &[type='thindog'],
+    &[type='ranking'] {
+        // 蓝(默认)rgba(var(--color), 1)
+        --alpha: 0.15;
+        // 红 rgba(255, 77, 77, 1);
+        &.red {
+            --color: 255, 77, 77;
+        }
+
+        // 粉 rgba(255, 149, 133, 1)
+        &.pink {
+            --color: 255, 149, 133;
+        }
+
+        // 橙rgba(255, 153, 0, 1)
+        &.orange {
+            --color: 255, 153, 0;
+        }
+
+        // 浅橙rgba(255, 196, 120, 1)
+        &.light-orange {
+            --color: 255, 196, 120;
+        }
+
+        // 黄rgba(250, 250, 30, 1)
+        &.yellow {
+            --color: 250, 250, 30;
+        }
+
+        // 绿rgba(32, 237, 89, 1)
+        &.green {
+            --color: 32, 237, 89;
+        }
+
+        // 青rgba(36, 252, 255, 1)
+        .cyan {
+            --color: 36, 252, 255;
+        }
+    }
+
+    // 细条卡片
+    &[type='thindog'] {
+        border-radius: var(--radius-md);
+        background: linear-gradient(90deg, rgba(var(--color), 0.2) 0%, rgba(var(--color), 0.1) 100%);
+
+        &:before,
+        &:after {
+            content: '';
+            left: 0;
+            top: 50%;
+            position: absolute;
+            pointer-events: none;
+            transform: translateY(-50%);
+        }
+
+        &::before {
+            width: pxToRem(6);
+            height: 36% !important;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            background-color: rgb(var(--color));
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &:hover,
+        &.hover {
+            background: linear-gradient(90deg, rgba(var(--color), 0.5) 0%, rgba(var(--color), 0.1) 100%);
+        }
+
+        &:active,
+        &.active {
+            background: linear-gradient(90deg, rgba(var(--color), 0.5) 0%, rgba(var(--color), 0.1) 100%);
+            box-shadow: 0 0 pxToRem(12) 0 rgba(var(--color), 1) inset;
+        }
+    }
+
+    // 排行卡片
+    // &[type='ranking'] {
+    //     border-radius: var(--radius-md);
+    //     background: linear-gradient(90deg, rgba(76, 152, 255, 0.2) 0%, rgba(76, 152, 255, 0) 100%);
+    //     overflow: hidden;
+
+    //     &:before,
+    //     &:after {
+    //         content: '';
+    //         left: 0;
+    //         top: 50%;
+    //         position: absolute;
+    //         pointer-events: none;
+    //         transform: translateY(-50%);
+    //     }
+
+    //     &::before {
+    //         width: pxToRem(6);
+    //         height: 36% !important;
+    //         border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    //         background-color: rgb(var(--color));
+    //     }
+
+    //     &::after {
+    //         width: pxToRem(46);
+    //         height: 100%;
+    //         background: linear-gradient(90deg, rgba(var(--color), 0.4) 0%, rgba(var(--color), 0) 100%);
+    //     }
+    // }
 }
 
 // 排行六边形按钮
@@ -1952,16 +2138,9 @@
                 .content {
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
-                    overflow: hidden;
                     -webkit-line-clamp: $clamp;
-
-                    &::after {
-                        content: ' ...';
-                        display: inline-block;
-                        overflow: hidden;
-                        vertical-align: bottom;
-                        white-space: nowrap; /* 防止换行 */
-                    }
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
             }
         }

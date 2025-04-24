@@ -1,48 +1,46 @@
 :root {
     /* 全局配置 */
-    /* 主题色rgb值#4C98FF */
-    --color: 76, 152, 255;
-    /* 辅色 rgb(76, 244, 255) #4cf4ff */
+    /* 主题色rgb值 rgba(28, 221, 255, 1) #1CDDFF */
+    --color: 28, 221, 255;
+    /* 辅色 rgba(76, 244, 255, 1) #4CF4FF */
     --lightColor: 76, 244, 255;
-    /* 主题色#4C98FF */
+    /* 主题色rgba(0,156,255,1) */
     --primaryColor: rgba(var(--color), 1);
-    /* 透明色 */
+    /* 透明色rgba(0,156,255,0) */
     --opacityColor: rgba(var(--color), 0);
-    /* 辅助色/纯色/1 */
+    /* 辅助色/纯色/1 色rgba(0,156,255,0.5) */
     --primaryColor-1: rgba(var(--color), 0.5);
-    /* 辅助色/纯色/2 */
+    /* 辅助色/纯色/2 色rgba(0,156,255,0.3)*/
     --primaryColor-2: rgba(var(--color), 0.3);
-    /* 辅助色/纯色/3 */
+    /* 辅助色/纯色/3 色rgba(0,156,255,0.2) */
     --primaryColor-3: rgba(var(--color), 0.2);
-    /* 辅助色/纯色/4 */
+    /* 辅助色/纯色/4 色rgba(0,156,255,0.1) */
     --primaryColor-4: rgba(var(--color), 0.1);
     /* 文本色/0 */
     --textColor: #ffffff;
     /* 文本色/主要 */
     --textColor-1: #ffffff;
     /* 文本色/次要 */
-    --textColor-2: #aac3e6;
+    --textColor-2: #beebff;
     /* 文本色/正文 */
-    --textColor-3: #d7e4f5;
-    /* 背景色 #0A1228 */
-    --bgColor: rgba(10, 18, 40, 1);
-    /* 前景色 #02183B */
-    --fgColor: 2, 24, 59;
+    --textColor-3: #ebf9ff;
+    /* 背景色 #062331 */
+    --bgColor: rgba(6, 35, 49, 0.8);
+    /* 前景色 #003b50 rgb(0,59,80) */
+    --fgColor: 0, 59, 80;
 
     /* 背景色-点位弹窗 */
-    --dialogBgColor: rgba(0, 12, 26, 0.8);
+    --dialogBgColor: rgba(0, 59, 80, 0.8);
     /* 阴影-1 */
-    --shadow-1: 0 calc(8 * 1rem / 16) calc(20 * 1rem / 16) rgba(var(--fgColor), 0.5);
+    --shadow-1: 0px 0px 20px var(--primaryColor);
     /* 内阴影-1 */
-    --insetShadow-1: inset 0 0 calc(12 * 1rem / 16) var(--primaryColor);
+    --insetShadow-1: inset 0px 0px 20px var(--primaryColor);
     /* 阴影-2 */
-    --shadow-2: 0 0 calc(50 * 1rem / 16) rgba(var(--fgColor), 1);
+    --shadow-2: 0px 0px 50px var(--bgColor);
     /* 内阴影-2 */
-    --insetShadow-2: inset 0 0 calc(20 * 1rem / 16) var(--primaryColor);
-    /* 内阴影-3 */
-    --insetShadow-3: inset 0 0 calc(20 * 1rem / 16) rgb(var(--lightColor));
+    --insetShadow-2: inset 0px 8px 24px var(--primaryColor-1);
     /* h1 仅用于顶部大标题中的特殊文字 */
-    --h1: calc(34 * 1rem / 16);
+    --h1: calc(52 * 1rem / 16);
     /* h2 标题 - 大 */
     --h2: calc(20 * 1rem / 16);
     /* h3 标题 - 中 */
@@ -60,15 +58,14 @@
     /* n3 数字 - 小 */
     --n3: calc(16 * 1rem / 16);
     /* 辅助色/渐变/1 */
-    --linearBg1: linear-gradient(135deg, var(--textColor) -3.33%, var(--opacityColor) 103.33%);
+    --linearBg1: linear-gradient(180deg, var(--primaryColor) 0%, var(--primaryColor-2) 100%);
     /* 辅助色/渐变/2 */
-    --linearBg2: linear-gradient(228.27deg, var(--opacityColor) 0.01%, var(--primaryColor) 54.17%, var(--opacityColor) 100%);
+    --linearBg2: linear-gradient(180deg, var(--primaryColor-1) 0%, var(--primaryColor-4) 100%);
     /* 辅助色/渐变/3 */
-    --linearBg3: linear-gradient(227.29deg, var(--opacityColor) 0%, rgb(var(--lightColor)) 51.52%, var(--opacityColor) 103.05%);
+    --linearBg3: linear-gradient(180deg, var(--primaryColor-1) 0%, var(--opacityColor) 100%);
     /* 辅助色/渐变/4 */
     --linearBg4: linear-gradient(180deg, var(--primaryColor-2) 0%, var(--primaryColor-4) 100%);
-    /* 【业务交互组件】图标渐变 */
-    --iconLinearBg: linear-gradient(135deg, var(--textColor) -3.33%, var(--primaryColor) 103.33%);
+
     /* 小间距,用于同组内容的间距 */
     --gap-xs: calc(4 * 1rem / 16);
     --gap-sm: calc(8 * 1rem / 16);
@@ -82,21 +79,23 @@
     /*小圆角,用于数据展示和数据输入等常规组件的圆角*/
     --radius-sm: calc(4 * 1rem / 16);
     /*中圆角,用于图例、弹窗、卡片列表等定制化内容的圆角*/
-    --radius-md: calc(10 * 1rem / 16);
+    --radius-md: calc(8 * 1rem / 16);
     /*大圆角,用于业务组件板的圆角*/
-    --radius-lg: calc(20 * 1rem / 16);
+    --radius-lg: calc(16 * 1rem / 16);
     /*全圆角,用于专题导航、弹窗操作按钮和时间切换等组件中，保证的边角始终为圆角*/
     --radius-xl: 50%;
+    /* 背景模糊-用于半透明背景，且直接显示在地图之上的组件背景中 */
+    --blur-effect: calc(16 * 1rem / 16);
 
     /* 布局配置 */
     /* 大屏宽度（用于固定宽度的布局） */
-    --main-width: 3200px;
+    --main-width: 100%;
     /* 头部组件高度 */
     --header-height: calc(80 * 1rem / 16);
     /* 主体内容区域与头部的边距 */
-    --main-margin-top: calc(12 * 1rem / 16);
+    --main-margin-top: calc(8 * 1rem / 16);
     /* 主体内容区域的底部内边距 */
-    --main-padding-bottom: calc(24 * 1rem / 16);
+    --main-padding-bottom: calc(20 * 1rem / 16);
     /* 主体内容区域高度 */
     --main-height: calc(100vh - var(--header-height) - var(--main-margin-top));
     /* 地图左右侧组件与两侧组件之间的间距*/
@@ -106,15 +105,15 @@
     /* 两侧业务组件之间的行间距 */
     --biz-component-row-gap: calc(20 * 1rem / 16);
     /* 两侧业务组件列之间的间距 */
-    --biz-component-column-gap: calc(30 * 1rem / 16);
+    --biz-component-column-gap: calc(20 * 1rem / 16);
     /* 两侧业务组件列的内部边距 */
     --biz-component-padding: calc(20 * 1rem / 16);
     /* 两侧业务组件标题高度 */
-    --biz-title-height: calc(40 * 1rem / 16);
+    --biz-title-height: calc(32 * 1rem / 16);
     /* 两侧业务组件标题颜色 */
     --biz-title-color: var(--textColor-1);
     /* 两侧业务组件标题字体尺寸 */
-    --biz-title-font-size: var(--h2);
+    --biz-title-font-size: var(--h3);
     /* 两侧业务组件筛选项表单组件高度 */
     --biz-filter-height: calc(28 * 1rem / 16);
     /* 两侧业务组件筛选项文字默认颜色 */
@@ -122,14 +121,14 @@
     /* 两侧业务组件筛选项文字高亮颜色 */
     --biz-filter-color-active: var(--textColor-1);
     /* 两侧业务组件筛选项文字尺寸 */
-    --biz-filter-font-size: calc(14 * 1rem / 16);
+    --biz-filter-font-size: var(--h6);
     /* 两侧业务组件内容区和标题之间的上下间隔*/
-    --biz-content-padding: calc(12 * 1rem / 16);
+    --biz-content-padding: calc(16 * 1rem / 16);
     /* 页面列宽 */
-    --view-column-width: calc(580 * 1rem / 16);
+    --view-column-width: calc(470 * 1rem / 16);
 
     /* 两侧业务组件背景色-渐变模式  moduleType='2'*/
-    --moduleBgColor: 10, 18, 40;
+    --moduleBgColor: 0, 12, 26;
     /* 两侧业务组件渐变模式的左侧宽度  moduleType='2'*/
     --biz-module-left-width: calc(var(--view-column-width) + var(--biz-component-column-gap) * 2 + 140 * 1rem / 16);
     /* 两侧业务组件渐变模式的右侧宽度  moduleType='2'*/
@@ -187,8 +186,7 @@
     /** 底部插槽高度 */
     --mobile-footer-height: calc(88 * 1rem / 28.125);
     /** 移动端适配最大宽度 */
-    /* prettier-ignore */
-    --screenMaxWidth: 1366PX;
+    --screenMaxWidth: 1366px;
     /** 业务组件标题字体 */
     --biz-title-font-size: var(--h2);
     /** 业务组件之间的行间距 */
